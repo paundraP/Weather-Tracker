@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Weather App</h1>
+    <form action="/weather" method="get">
+        <label for="city">Masukkan nama kota:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+    {{if .WeatherData.Name}}
+    <div class="alert">The weather data for {{.WeatherData.Name}} has been loaded.</div>
+    <h2>Weather in {{.WeatherData.Name}}</h2>
+    <p>Temperature: <span class="temperature">{{.WeatherData.Main.Temperature}} °C</span></p>
+    {{end}}
+    {{if .ErrorMessage}}
+    <div class="alert error">{{.ErrorMessage}}</div>
+    {{end}}
+</body>
+</html>
