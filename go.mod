@@ -1,3 +1,3 @@
 module github/paundraP/weather
 
-go 1.22.3
+go 1.20.6
